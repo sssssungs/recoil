@@ -4,13 +4,13 @@ import { textState, todoListFilterState, todoListState } from "../atoms";
 export const charCountState = selector({
   key: "charCountState",
   get: ({ get }) => {
-    console.log(get);
     const text = get(textState);
     return text.length;
   },
 });
 
 export const filteredTodoListState = selector({
+  // derived state
   key: "filteredTodoListState",
   get: ({ get }) => {
     const filter = get(todoListFilterState);
@@ -44,3 +44,5 @@ export const todoListStatsState = selector({
     };
   },
 });
+
+// useResetRecoilValue을 사용하면 아톰이 정의하는 상태를 초기값으로 재설정하는 리셋 함수를 구할 수 있다.
